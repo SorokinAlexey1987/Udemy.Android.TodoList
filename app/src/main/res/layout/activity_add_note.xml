@@ -13,35 +13,50 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="@string/note_hint"
-        android:inputType="textPersonName"
-        />
+        android:inputType="textPersonName" />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioButtonLow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Низкий"
-            />
+            android:background="@android:color/holo_green_light"
+            android:padding="8dp"
+            android:text="@string/low"
+            android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/radioButtonMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Средний"
-            />
+            android:background="@android:color/holo_orange_light"
+            android:padding="8dp"
+            android:text="@string/medium"
+            android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/radioButtonHigh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Высокий"
-            />
+            android:background="@android:color/holo_red_light"
+            android:padding="8dp"
+            android:text="@string/high"
+            android:textColor="@android:color/white" />
 
     </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/save"
+        />
 
 </LinearLayout>
