@@ -17,7 +17,7 @@ public class AddNoteActivity extends AppCompatActivity {
     private RadioButton radioButtonMedium;
     private Button buttonSave;
 
-    private Database database = new Database();
+    private Database database = Database.getInstance();
 
 
     @Override
