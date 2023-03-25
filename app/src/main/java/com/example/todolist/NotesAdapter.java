@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class NotesAdapter extends RecyclerView.Adapter<> {
+public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
     private ArrayList<Note> notes = new ArrayList<>();
 
@@ -21,20 +21,19 @@ public class NotesAdapter extends RecyclerView.Adapter<> {
 
     @NonNull
     @Override
-    public View onCreateView(@NonNull ViewGroup parent, int viewType) {
+    public NotesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.note_item,
                 parent,
                 false
         );
-        return view;
+        return new NotesViewHolder(view);
     }
 
     @Override
-    public void onBindView(View view, int position) {
+    public void onBindViewHolder(NotesViewHolder viewHolder, int position) {
         Note note = notes.get(position);
-        TextView textViewNote = view.findViewById(R.id.textViewNote);
-        textViewNote.setText(note.getText());
+        viewHolder.textViewNote.setText(note.getText());
 
         int colorResId;
         switch (note.getPriority()) {
@@ -47,12 +46,21 @@ public class NotesAdapter extends RecyclerView.Adapter<> {
             default:
                 colorResId = android.R.color.holo_red_light;
         }
-        int color = ContextCompat.getColor(view.getContext(), colorResId);
-        textViewNote.setBackgroundColor(color);
+        int color = ContextCompat.getColor(viewHolder.itemView.getContext(), colorResId);
+        viewHolder.textViewNote.setBackgroundColor(color);
     }
 
     @Override
     public int getItemCount() {
         return notes.size();
+    }
+
+    class NotesViewHolder extends RecyclerView.ViewHolder {
+        private TextView textViewNote;
+
+        public NotesViewHolder(@NonNull View itemView) {
+            super(itemView);
+            textViewNote = itemView.findViewById(R.id.textViewNote);
+        }
     }
 }
