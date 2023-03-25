@@ -20,6 +20,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         this.onNoteClickListener = onNoteClickListener;
     }
 
+    public ArrayList<Note> getNotes() {
+        return new ArrayList<>(notes);
+    }
+
     public void setNotes(ArrayList<Note> notes) {
         this.notes = notes;
         notifyDataSetChanged();
@@ -57,7 +61,9 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onNoteClickListener.onNoteClick(note);
+                if (onNoteClickListener != null) {
+                    onNoteClickListener.onNoteClick(note);
+                }
             }
         });
     }
