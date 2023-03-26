@@ -44,7 +44,7 @@ public class AddNoteActivity extends AppCompatActivity {
     private void saveNote() {
         String text = editTextNote.getText().toString().trim();
         int priority = getPriority();
-        Note note = new Note(0, text, priority);
+        Note note = new Note(text, priority);
         noteDatabase.notesDao().add(note);
 
         finish();
