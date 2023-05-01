@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
                             @NonNull RecyclerView.ViewHolder viewHolder,
                             int direction
                     ) {
-                        int posotion = viewHolder.getAdapterPosition();
-                        Note note = notesAdapter.getNotes().get(posotion);
+                        int position = viewHolder.getAdapterPosition();
+                        Note note = notesAdapter.getNotes().get(position);
 
                         Thread thread = new Thread(new Runnable() {
                             @Override
